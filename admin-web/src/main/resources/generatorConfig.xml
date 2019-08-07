@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+    <!--选择数据库驱动文件-->
+    <classPathEntry
+            location="/Users/hujiaming/arthur/mavenrepository/repository/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar" />
+    <context id="rebate_service_mysql" targetRuntime="MyBatis3">
+        <property name="mergeable" value="false"/>
+        <!--禁用注释-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!--JDBC连接-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.188.60.194:3306/farmers_market"
+                        userId="root"
+                        password="bove@123"></jdbcConnection>
+        <!--实体类配置-->
+        <javaModelGenerator targetPackage="com.chat.web.alliance.model" targetProject="/Users/bove/boveproject/05智慧农贸/src/trunk/farmers-market/src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!--xml描述文件配置-->
+        <sqlMapGenerator targetPackage="com.chat.web.alliance.mapping" targetProject="/Users/bove/boveproject/05智慧农贸/src/trunk/farmers-market/src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!--xml描述文件对应dao配置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.chat.web.alliance.mapper" targetProject="/Users/bove/boveproject/05智慧农贸/src/trunk/farmers-market/src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="alliance" domainObjectName="Alliance"
+               enableCountByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               enableUpdateByExample="true">
+            <property name="rootClass" value="com.chat.web.common.base.BaseEntity"/>
+        </table>
+
+    </context>
+
+</generatorConfiguration>
