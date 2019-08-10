@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +25,9 @@ public class DemoApi {
     @Autowired
     private DemoFeign demoFeign;
 
+    @Autowired
+    private AmqpTemplate rabbitTemplate;
+
     @ApiOperation("测试Feign调用")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "value1", value = "传值一"),
@@ -32,5 +36,12 @@ public class DemoApi {
     @RequestMapping(value = "test", method = RequestMethod.POST)
     public String test() {
         return demoFeign.hello();
+    }
+
+    @ApiOperation("测试rabbitmq调用")
+    @RequestMapping(value = "rabbitmqTest", method = RequestMethod.POST)
+    public String rabbitmqTest() {
+        rabbitTemplate.convertAndSend("GT-syn-product-mq", "1212");
+        return "success";
     }
 }

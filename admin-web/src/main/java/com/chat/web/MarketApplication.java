@@ -1,10 +1,5 @@
 package com.chat.web;
 
-import com.bove.configuration.CommonConfiguration;
-import com.bove.configuration.InterceptorConfiguration;
-import com.bove.configuration.RedisConfigConfiguration;
-import com.bove.framework.util.pager.DatatablePageHelper;
-import com.bove.framework.util.redisUtil.ApplicationContextUtil;
 import com.google.common.base.Function;
 import com.google.common.base.Optional;
 import com.google.common.base.Predicate;
@@ -14,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.DependsOn;
-import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -34,7 +28,6 @@ import javax.sql.DataSource;
 @MapperScan("com.chat.web.*.mapper")
 @EnableTransactionManagement
 //@Import({DatatablePageHelper.class, CommonConfiguration.class, RedisConfigConfiguration.class, InterceptorConfiguration.class, ApplicationContextUtil.class})
-@Import({DatatablePageHelper.class, CommonConfiguration.class, RedisConfigConfiguration.class, ApplicationContextUtil.class})
 public class MarketApplication {
 
 	public static void main(String[] args) {

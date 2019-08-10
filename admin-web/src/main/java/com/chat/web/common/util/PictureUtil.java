@@ -1,11 +1,9 @@
 package com.chat.web.common.util;
 
-import com.bove.annotation.PassToken;
-import com.bove.commons.lang.RDateUtils;
+import com.chat.web.common.annotations.PassToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
