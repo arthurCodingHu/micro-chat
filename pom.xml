@@ -26,6 +26,7 @@
         <module>admin-web</module>
         <module>chat-eureka</module>
         <module>chat-product</module>
+        <module>chat-gateway</module>
     </modules>
 
     <!--============私服配置start=================-->
